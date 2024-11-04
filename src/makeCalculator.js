@@ -7,32 +7,24 @@ function makeCalculator() {
   const calculator = {
     result: 0,
     add(value) {
-      calculator.result += value;
-
-      return this;
+      this.result += value;
     },
     subtract(value) {
-      calculator.result -= value;
-
-      return this;
+      this.result -= value;
     },
     multiply(value) {
-      calculator.result *= value;
-
-      return this;
+      this.result *= value;
     },
     divide(value) {
-      calculator.result /= value;
-
-      return this;
+      this.result /= value;
     },
     reset() {
-      calculator.result = 0;
+      this.result = 0;
 
       return this;
     },
-    operate(callback, value) {
-      callback(value);
+    operate(operation, value) {
+      operation.call(this, value);
 
       return this;
     },
